@@ -7,7 +7,6 @@ use azure_sdk_core::errors::AzureError;
 use log::debug;
 use oauth2::basic::BasicClient;
 use oauth2::reqwest::async_http_client;
-use oauth2::AsyncCodeTokenRequest;
 use oauth2::{
     AuthType, AuthUrl, AuthorizationCode, CsrfToken, PkceCodeChallenge, PkceCodeVerifier,
     RedirectUrl, TokenUrl,
@@ -59,7 +58,7 @@ pub fn authorize_delegate(
         // Microsoft Graph requires client_id and client_secret in URL rather than
         // using Basic authentication.
         .set_auth_type(AuthType::RequestBody)
-        .set_redirect_url(RedirectUrl::from_url(redirect_url));
+        .set_redirect_uri(RedirectUrl::from_url(redirect_url));
 
     // Microsoft Graph supports Proof Key for Code Exchange (PKCE - https://oauth.net/2/pkce/).
     // Create a PKCE code verifier and SHA-256 encode it as a code challenge.

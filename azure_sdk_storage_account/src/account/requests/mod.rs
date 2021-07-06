@@ -1,2 +1,0 @@
-mod get_account_information_builder;
-pub use self::get_account_information_builder::GetAccountInformationBuilder;

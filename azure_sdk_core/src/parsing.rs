@@ -93,8 +93,7 @@ pub fn traverse<'a>(
     // debug!("path.len() == {:?}", path.len());
 
     if path.is_empty() {
-        let mut vec = Vec::new();
-        vec.push(node);
+        let vec = vec![node];
         return Ok(vec);
     }
 
@@ -177,7 +176,7 @@ where
 {
     let node = traverse_single_must(node, path)?;
     let itxt = inner_text(node)?;
-    Ok(T::from_str_optional(itxt)?)
+    T::from_str_optional(itxt)
 }
 
 #[cfg(test)]

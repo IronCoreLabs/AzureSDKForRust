@@ -97,11 +97,7 @@ pub trait TimeoutOption {
     fn timeout(&self) -> Option<u64>;
 
     fn to_uri_parameter(&self) -> Option<String> {
-        if let Some(nm) = self.timeout() {
-            Some(format!("timeout={}", nm))
-        } else {
-            None
-        }
+        self.timeout().map(|nm| format!("timeout={}", nm))
     }
 }
 
@@ -388,11 +384,9 @@ pub trait NextMarkerOption<'a> {
     fn next_marker(&self) -> Option<&'a str>;
 
     fn to_uri_parameter(&self) -> Option<String> {
-        if let Some(ref nm) = self.next_marker() {
-            Some(format!("marker={}", nm))
-        } else {
-            None
-        }
+        self.next_marker()
+            .as_ref()
+            .map(|nm| format!("marker={}", nm))
     }
 }
 
@@ -405,11 +399,9 @@ pub trait SnapshotOption {
     fn snapshot(&self) -> Option<DateTime<Utc>>;
 
     fn to_uri_parameter(&self) -> Option<String> {
-        if let Some(ref nm) = self.snapshot() {
-            Some(format!("snapshot={}", nm.to_rfc2822()))
-        } else {
-            None
-        }
+        self.snapshot()
+            .as_ref()
+            .map(|nm| format!("snapshot={}", nm.to_rfc2822()))
     }
 }
 
@@ -447,11 +439,9 @@ pub trait MaxResultsOption {
     fn max_results(&self) -> Option<u32>;
 
     fn to_uri_parameter(&self) -> Option<String> {
-        if let Some(ref nm) = self.max_results() {
-            Some(format!("maxresults={}", nm))
-        } else {
-            None
-        }
+        self.max_results()
+            .as_ref()
+            .map(|nm| format!("maxresults={}", nm))
     }
 }
 
@@ -518,7 +508,7 @@ pub trait IncludeListOptions:
 
         if self.include_metadata() {
             if !f_first {
-                s.push_str(",");
+                s.push(',');
             }
             s.push_str("metadata");
             f_first = false;
@@ -526,7 +516,7 @@ pub trait IncludeListOptions:
 
         if self.include_uncommitted_blobs() {
             if !f_first {
-                s.push_str(",");
+                s.push(',');
             }
             s.push_str("uncommittedblobs");
             f_first = false;
@@ -534,7 +524,7 @@ pub trait IncludeListOptions:
 
         if self.include_copy() {
             if !f_first {
-                s.push_str(",");
+                s.push(',');
             }
             s.push_str("copy");
             f_first = false;
@@ -542,7 +532,7 @@ pub trait IncludeListOptions:
 
         if self.include_deleted() {
             if !f_first {
-                s.push_str(",");
+                s.push(',');
             }
             s.push_str("deleted");
         }
@@ -564,11 +554,7 @@ pub trait PrefixOption<'a> {
     fn prefix(&self) -> Option<&'a str>;
 
     fn to_uri_parameter(&self) -> Option<String> {
-        if let Some(ref nm) = self.prefix() {
-            Some(format!("prefix={}", nm))
-        } else {
-            None
-        }
+        self.prefix().as_ref().map(|nm| format!("prefix={}", nm))
     }
 }
 

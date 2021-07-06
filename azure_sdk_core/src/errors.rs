@@ -131,12 +131,12 @@ quick_error! {
         ParseIntError(p :ParseIntError) {
             from()
             display("parse int error: {}", p)
-            cause(p)
+            source(p)
         }
         Not512ByteAlignedError(nb: Not512ByteAlignedError)  {
             from()
             display("not 512 byte aligned error: {}", nb)
-            cause(nb)
+            source(nb)
         }
     }
 }
@@ -153,7 +153,7 @@ quick_error! {
         Base64DecodeError(err: base64::DecodeError) {
             from()
             display("base64 decode error: {}", err)
-            cause(err)
+            source(err)
         }
         DigestNot16BytesLong(len : u64) {
             display("digest length {} bytes instead of 16", len)
@@ -161,32 +161,32 @@ quick_error! {
         ParseBoolError(err: ParseBoolError) {
             from()
             display("parse bool error: {}", err)
-            cause(err)
+            source(err)
         }
         ToStrError(err: ToStrError) {
             from()
             display("to str error: {}", err)
-            cause(err)
+            source(err)
         }
         JSONError(err: serde_json::Error) {
             from()
             display("json error: {}", err)
-            cause(err)
+            source(err)
         }
-        HyperError(err: hyper::error::Error){
+        HyperError(err: hyper::Error){
             from()
             display("Hyper error: {}", err)
-            cause(err)
+            source(err)
         }
         IOError(err: IOError){
             from()
             display("IO error: {}", err)
-            cause(err)
+            source(err)
         }
         XMLError(err: XMLError){
             from()
             display("XML error: {}", err)
-            cause(err)
+            source(err)
         }
         UnexpectedXMLError(err: String) {
             display("UnexpectedXMLError: {}", err)
@@ -194,7 +194,7 @@ quick_error! {
         AzurePathParseError(err: AzurePathParseError){
             from()
             display("Azure Path parse error: {}", err)
-            cause(err)
+            source(err)
         }
         UnexpectedHTTPResult(err: UnexpectedHTTPResult){
             from()
@@ -210,17 +210,17 @@ quick_error! {
         ResponseParsingError(err: TraversingError){
             from()
             display("Traversing error: {}", err)
-            cause(err)
+            source(err)
         }
         ParseIntError(err: num::ParseIntError){
             from()
             display("Parse int error: {}", err)
-            cause(err)
+            source(err)
         }
         ParseFloatError(err: std::num::ParseFloatError) {
             from()
             display("Parse float error: {}", err)
-            cause(err)
+            source(err)
         }
         ParseError(err: ParseError){
             from()
@@ -240,37 +240,37 @@ quick_error! {
         URLParseError(err: URLParseError){
             from()
             display("URL parse error: {}", err)
-            cause(err)
+            source(err)
         }
         HttpPrepareError(err: http::Error) {
             from()
             display("Error preparing HTTP request: {}", err) // todo: revisit usages / message here
-            cause(err)
+            source(err)
         }
         ParseUuidError(err: uuid::Error){
             from()
             display("uuid error: {}", err)
-            cause(err)
+            source(err)
         }
        ChronoParserError(err: chrono::ParseError) {
             from()
             display("Chrono parser error: {}", err)
-            cause(err)
+            source(err)
         }
         UTF8Error(err: str::Utf8Error) {
             from()
             display("UTF8 conversion error: {}", err)
-            cause(err)
+            source(err)
         }
         FromUtf8Error(err: string::FromUtf8Error) {
             from()
             display("FromUTF8 error: {}", err)
-            cause(err)
+            source(err)
         }
         SerdeXMLDeserializationError(err:serde_xml_rs::Error) {
             from()
             display("XML deserialization error: {}", err)
-            cause(err)
+            source(err)
         }
         MissingHeaderError(header: String) {
             display("A required header is missing: {}", header)
@@ -305,13 +305,13 @@ quick_error! {
         DateTimeParseError(err: chrono::format::ParseError){
             from()
             display("DateTime parse error: {}", err)
-            cause(err)
+            source(err)
         }
         TextNotFound
         ParseIntError(err: num::ParseIntError){
             from()
             display("Parse int error: {}", err)
-            cause(err)
+            source(err)
         }
         GenericParseError(msg: String) {
             display("Generic parse error: {}", msg)
