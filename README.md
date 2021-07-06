@@ -1,34 +1,11 @@
 # Microsoft Azure SDK for Rust
 
+This is a fork of https://github.com/MindFlavor/AzureSDKForRust that is used by IronCoreLabs. It only includes the `azure_sdk_core` and `azure_sdk_auth_aad` crates and mostly focuses on dependency upgrades.
 
-[![legal](https://img.shields.io/github/license/mindflavor/AzureSDKForRust.svg)](LICENSE) 
-
-[![Build Status](https://travis-ci.org/MindFlavor/AzureSDKForRust.svg?branch=master)](https://travis-ci.org/MindFlavor/AzureSDKForRust) [![Coverage Status](https://coveralls.io/repos/MindFlavor/AzureSDKForRust/badge.svg?branch=master&service=github)](https://coveralls.io/github/MindFlavor/AzureSDKForRust?branch=master) ![stability-unstable](https://img.shields.io/badge/stability-unstable-yellow.svg)
-
-[![tag](https://img.shields.io/github/tag/mindflavor/AzureSDKForRust.svg)](https://github.com/MindFlavor/AzureSDKForRust/tree/aad_0.44.0) [![release](https://img.shields.io/github/release/mindflavor/AzureSDKForRust.svg)](https://github.com/MindFlavor/AzureSDKForRust/releases/tag/aad_0.44.0) [![commitssince](https://img.shields.io/github/commits-since/mindflavor/AzureSDKForRust/aad_0.44.0)](https://github.com/MindFlavor/AzureSDKForRust/commits/master)
-
-[![GitHub contributors](https://img.shields.io/github/contributors/MindFlavor/AzureSDKForRust.svg)](https://github.com/MindFlavor/AzureSDKForRust/graphs/contributors)
-
-Crate repo | Docs | Crates.io | Downloads | Downloads@Latest |
--- | -- | -- | -- | -- |
-[azure_sdk_auth_aad](https://github.com/MindFlavor/AzureSDKForRust/tree/master/azure_sdk_auth_aad) | [![docs](https://docs.rs/azure_sdk_auth_aad/badge.svg)](https://docs.rs/azure_sdk_auth_aad) | [![Crate](https://img.shields.io/crates/v/azure_sdk_auth_aad.svg)](https://crates.io/crates/azure_sdk_auth_aad) | [![cratedown](https://img.shields.io/crates/d/azure_sdk_auth_aad.svg)](https://crates.io/crates/azure_sdk_auth_aad) | [![cratelastdown](https://img.shields.io/crates/dv/azure_sdk_auth_aad.svg)](https://crates.io/crates/azure_sdk_auth_aad)
-[azure_sdk_core](https://github.com/MindFlavor/AzureSDKForRust/tree/master/azure_sdk_core) | [![docs](https://docs.rs/azure_sdk_core/badge.svg)](https://docs.rs/azure_sdk_core) | [![Crate](https://img.shields.io/crates/v/azure_sdk_core.svg)](https://crates.io/crates/azure_sdk_core) | [![cratedown](https://img.shields.io/crates/d/azure_sdk_core.svg)](https://crates.io/crates/azure_sdk_core) | [![cratelastdown](https://img.shields.io/crates/dv/azure_sdk_core.svg)](https://crates.io/crates/azure_sdk_core)
-[azure_sdk_cosmos](https://github.com/MindFlavor/AzureSDKForRust/tree/master/azure_sdk_cosmos) | [![docs](https://docs.rs/azure_sdk_cosmos/badge.svg)](https://docs.rs/azure_sdk_cosmos) | [![Crate](https://img.shields.io/crates/v/azure_sdk_cosmos.svg)](https://crates.io/crates/azure_sdk_cosmos) | [![cratedown](https://img.shields.io/crates/d/azure_sdk_cosmos.svg)](https://crates.io/crates/azure_sdk_cosmos) | [![cratelastdown](https://img.shields.io/crates/dv/azure_sdk_cosmos.svg)](https://crates.io/crates/azure_sdk_cosmos)
-[azure_sdk_service_bus](https://github.com/MindFlavor/AzureSDKForRust/tree/master/azure_sdk_service_bus) | [![docs](https://docs.rs/azure_sdk_service_bus/badge.svg)](https://docs.rs/azure_sdk_service_bus) | [![Crate](https://img.shields.io/crates/v/azure_sdk_service_bus.svg)](https://crates.io/crates/azure_sdk_service_bus) | [![cratedown](https://img.shields.io/crates/d/azure_sdk_service_bus.svg)](https://crates.io/crates/azure_sdk_service_bus) | [![cratelastdown](https://img.shields.io/crates/dv/azure_sdk_service_bus.svg)](https://crates.io/crates/azure_sdk_service_bus)
-[azure_sdk_storage_account](https://github.com/MindFlavor/AzureSDKForRust/tree/master/azure_sdk_storage_account) | [![docs](https://docs.rs/azure_sdk_storage_account/badge.svg)](https://docs.rs/azure_sdk_storage_account) | [![Crate](https://img.shields.io/crates/v/azure_sdk_storage_account.svg)](https://crates.io/crates/azure_sdk_storage_account) | [![cratedown](https://img.shields.io/crates/d/azure_sdk_storage_account.svg)](https://crates.io/crates/azure_sdk_storage_account) | [![cratelastdown](https://img.shields.io/crates/dv/azure_sdk_storage_account.svg)](https://crates.io/crates/azure_sdk_storage_account)
-[azure_sdk_storage_blob](https://github.com/MindFlavor/AzureSDKForRust/tree/master/azure_sdk_storage_blob) | [![docs](https://docs.rs/azure_sdk_storage_blob/badge.svg)](https://docs.rs/azure_sdk_storage_blob) | [![Crate](https://img.shields.io/crates/v/azure_sdk_storage_blob.svg)](https://crates.io/crates/azure_sdk_storage_blob) | [![cratedown](https://img.shields.io/crates/d/azure_sdk_storage_blob.svg)](https://crates.io/crates/azure_sdk_storage_blob) | [![cratelastdown](https://img.shields.io/crates/dv/azure_sdk_storage_blob.svg)](https://crates.io/crates/azure_sdk_storage_blob)
-[azure_sdk_storage_core](https://github.com/MindFlavor/AzureSDKForRust/tree/master/azure_sdk_storage_core) | [![docs](https://docs.rs/azure_sdk_storage_core/badge.svg)](https://docs.rs/azure_sdk_storage_core) | [![Crate](https://img.shields.io/crates/v/azure_sdk_storage_core.svg)](https://crates.io/crates/azure_sdk_storage_core) | [![cratedown](https://img.shields.io/crates/d/azure_sdk_storage_core.svg)](https://crates.io/crates/azure_sdk_storage_core) | [![cratelastdown](https://img.shields.io/crates/dv/azure_sdk_storage_core.svg)](https://crates.io/crates/azure_sdk_storage_core)
-[azure_sdk_storage_table](https://github.com/MindFlavor/AzureSDKForRust/tree/master/azure_sdk_storage_table) | [![docs](https://docs.rs/azure_sdk_storage_table/badge.svg)](https://docs.rs/azure_sdk_storage_table) | [![Crate](https://img.shields.io/crates/v/azure_sdk_storage_table.svg)](https://crates.io/crates/azure_sdk_storage_table) | [![cratedown](https://img.shields.io/crates/d/azure_sdk_storage_table.svg)](https://crates.io/crates/azure_sdk_storage_table) | [![cratelastdown](https://img.shields.io/crates/dv/azure_sdk_storage_table.svg)](https://crates.io/crates/azure_sdk_storage_table)
-
-#### Ancillary crates
-
-Ancillary crates are maintained in a separated GitHub repo by other members of the community. If you have a crate that you want to list here do not hesitate to drop a line/PR.
-
-Crate repo | Maintainer | Docs | Crates.io | Downloads | Downloads@Latest | Contributors
--- | -- | -- | -- | -- | -- | -- |
-[azure-sdk-keyvault](https://github.com/guywaldman/azure-sdk-keyvault) | [Guy Waldman](https://github.com/guywaldman) | [![docs](https://docs.rs/azure-sdk-keyvault/badge.svg)](https://docs.rs/azure-sdk-keyvault) | [![Crate](https://img.shields.io/crates/v/azure_sdk_keyvault.svg)](https://crates.io/crates/azure_sdk_keyvault) | [![cratedown](https://img.shields.io/crates/d/azure_sdk_keyvault.svg)](https://crates.io/crates/azure_sdk_keyvault) | [![cratelastdown](https://img.shields.io/crates/dv/azure_sdk_keyvault.svg)](https://crates.io/crates/azure_sdk_keyvault) | [![GitHub contributors](https://img.shields.io/github/contributors/guywaldman/azure-sdk-keyvault.svg)](https://github.com/guywaldman/azure-sdk-keyvault/graphs/contributors)
+---
 
 ## Introduction
+
 Microsoft Azure exposes its technologies via REST API. These APIs are easily consumable from any language (good) but are weakly typed. With this library and its related [crate](https://crates.io/crates/azure_sdk_for_rust/) you can exploit the power of Microsoft Azure from Rust in a idiomatic way.
 
 This crate relies heavily on the excellent crate called [Hyper](https://github.com/hyperium/hyper). As of this library version [0.30.0](https://github.com/MindFlavor/AzureSDKForRust/releases/tag/0.30.0) all the methods are async/await compliant (`futures 0.3`).
@@ -40,10 +17,10 @@ From version 0.12.0 the library switched from [hyper-tls](https://github.com/hyp
 > **NOTE:** This repository is under heavy development and is likely to break over time. The current releases will probabily contain bugs. As usual open issues if you find any.
 
 ## Disclaimer
+
 Although I am a Microsoft employee, this is not a Microsoft endorsed project. It's simply a pet project of mine: I love Rust (who doesn't? :smirk:) and Microsoft Azure technologies so I thought to close the gap between them. It's also a good project for learning Rust. This library relies heavily on [Hyper](https://github.com/hyperium/hyper). We use the latest Hyper code so this library is fully async with Futures and Tokio.
- 
+
 ## Example
-You can find examples in the [```examples```](https://github.com/MindFlavor/AzureSDKForRust/tree/master/azure_sdk_cosmos/examples) folder of each sub-crate. Here is a glimpse:
 
 ### main.rs
 
@@ -210,17 +187,19 @@ async fn main() -> Result<(), Box<dyn Error>> {
 ```
 
 ## State of the art
+
 Right now the key framework is in place (authentication, enumerations, parsing and so on). If you want to contribute please do!
 Methods are added daily so please check the [release page](https://github.com/MindFlavor/AzureSDKForRust/releases) for updates on the progress.
 Also note that the project is in early stages so the APIs are bound to change at any moment. I will strive to keep things steady but since I'm new to Rust I'm sure I'll have to correct some serious mistake before too long :smile:.
 I generally build for the latest nightly and leave to Travis to check the retrocompatibility.
 
 ## Contributing
+
 If you want to contribute please do! No formality required! :wink:. Please note that asking for a pull request you accept to yield your code as per [Apache license, version 2.0](LICENSE).
 
-## Run E2E test 
+## Run E2E test
 
-### Linux 
+### Linux
 
 ```bash
 export STORAGE_ACCOUNT=<account>
@@ -275,4 +254,5 @@ cargo test --features=test_e2e
 ```
 
 ## License
+
 This project is published under [Apache license, version 2.0](LICENSE).
