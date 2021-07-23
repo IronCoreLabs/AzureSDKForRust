@@ -2,6 +2,8 @@
 
 This is a fork of https://github.com/MindFlavor/AzureSDKForRust that is used by IronCoreLabs. It only includes the `azure_sdk_core` and `azure_sdk_auth_aad` crates and mostly focuses on dependency upgrades.
 
+This will only exist until https://github.com/Azure/azure-sdk-for-rust is usable.
+
 ---
 
 ## Introduction
