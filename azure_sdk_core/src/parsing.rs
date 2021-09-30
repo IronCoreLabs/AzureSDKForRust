@@ -84,7 +84,7 @@ pub fn traverse<'a>(
     path: &[&str],
     ignore_empty_leaf: bool,
 ) -> Result<Vec<&'a Element>, TraversingError> {
-    trace!(
+    log::trace!(
         "traverse(node == {:?}, path == {:?}, ignore_empty_leaf == {})",
         node,
         path,
