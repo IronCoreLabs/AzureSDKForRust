@@ -1,8 +1,3 @@
-#[macro_use]
-extern crate failure;
-#[macro_use]
-extern crate serde_derive;
-extern crate log;
 use azure_sdk_core::errors::AzureError;
 use log::debug;
 use oauth2::basic::BasicClient;

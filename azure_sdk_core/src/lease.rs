@@ -1,3 +1,4 @@
+use crate::create_enum;
 use uuid::Uuid;
 
 create_enum!(LeaseStatus, (Locked, "locked"), (Unlocked, "unlocked"));

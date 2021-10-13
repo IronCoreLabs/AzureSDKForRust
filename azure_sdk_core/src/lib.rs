@@ -1,19 +1,8 @@
-#![recursion_limit = "256"]
-#![warn(rust_2018_idioms)]
-
-#[macro_use]
-extern crate log;
-#[macro_use]
-extern crate quick_error;
-#[macro_use]
-extern crate serde_derive;
-#[macro_use]
-pub mod errors;
-pub mod parsing;
-#[macro_use]
 pub mod enumerations;
+pub mod errors;
 pub mod incompletevector;
 pub mod lease;
+pub mod parsing;
 pub mod util;
 use crate::util::HeaderMapExt;
 use std::fmt::Debug;
@@ -42,6 +31,9 @@ pub mod prelude;
 use chrono::{DateTime, Utc};
 use http::status::StatusCode;
 use hyper::{Body, Client, Request};
+use log::{debug, trace};
+use serde::Deserialize;
+use serde::Serialize;
 
 #[macro_export]
 macro_rules! response_from_headers {

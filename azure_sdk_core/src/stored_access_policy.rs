@@ -1,5 +1,6 @@
 use crate::errors::AzureError;
 use chrono::{DateTime, FixedOffset};
+use serde::Deserialize;
 
 #[derive(Debug, Clone, Default, PartialEq)]
 pub struct StoredAccessPolicyList {

@@ -4,6 +4,8 @@ use chrono;
 use http;
 use http::header::ToStrError;
 use hyper::{self, body, Body, StatusCode};
+use log::debug;
+use quick_error::quick_error;
 use serde_json;
 use serde_xml_rs;
 use std;
@@ -147,9 +149,6 @@ quick_error! {
         PageNot512ByteAlignedError(start: u64, end: u64) {
             display("{}-{} is not 512 byte aligned", start, end)
         }
-         Not512ByteAlignedError(size: u64) {
-            display("{} is not 512 byte aligned", size)
-        }
         Base64DecodeError(err: base64::DecodeError) {
             from()
             display("base64 decode error: {}", err)
@@ -278,9 +277,6 @@ quick_error! {
         MissingValueError(value: String, expected_type: String) {
             display("An expected JSON node is missing: {} of expected type {}", value, expected_type)
         }
-        FailureError(error: failure::Error) {
-            display("failure::Error error {}", error)
-        }
     }
 }
 
@@ -326,12 +322,6 @@ quick_error! {
 impl From<()> for AzureError {
     fn from(_: ()) -> AzureError {
         AzureError::GenericError
-    }
-}
-
-impl From<failure::Error> for AzureError {
-    fn from(error: failure::Error) -> AzureError {
-        AzureError::FailureError(error)
     }
 }
 

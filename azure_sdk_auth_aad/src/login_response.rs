@@ -1,7 +1,8 @@
 use azure_sdk_core::errors::AzureError;
 use chrono::{DateTime, TimeZone, Utc};
 use oauth2::AccessToken;
-use serde::de::{self, Deserialize, Deserializer};
+use serde::de;
+use serde::{Deserialize, Deserializer};
 use std::str::FromStr;
 
 #[derive(Debug, Clone, Deserialize)]
