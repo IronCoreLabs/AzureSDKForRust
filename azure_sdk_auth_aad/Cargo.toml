@@ -10,7 +10,7 @@ documentation      = "http://mindflavor.github.io/AzureSDKForRust/azure_sdk_for_
 homepage           = "https://github.com/MindFlavor/AzureSDKForRust"
 keywords           = ["sdk", "azure", "rest", "iot", "cloud"]
 categories         = ["api-bindings"]
-edition            = "2018"
+edition            = "2021"
 
 [dependencies]
 azure_sdk_core       = { path = "../azure_sdk_core" }
