@@ -1,4 +1,4 @@
-use azure_sdk_core::errors::AzureError;
+use crate::errors::AzureError;
 use chrono::{DateTime, TimeZone, Utc};
 use oauth2::AccessToken;
 use serde::de;
