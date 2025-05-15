@@ -53,10 +53,10 @@ impl LoginResponse {
 
     fn from_base_response(r: _LoginResponse) -> Result<LoginResponse, AzureError> {
         let expires_on: i64 = r.expires_on.parse()?;
-        let expires_on: DateTime<Utc> = Utc.timestamp(expires_on, 0);
+        let expires_on: DateTime<Utc> = Utc.timestamp_opt(expires_on, 0).unwrap();
 
         let not_before: i64 = r.not_before.parse()?;
-        let not_before: DateTime<Utc> = Utc.timestamp(not_before, 0);
+        let not_before: DateTime<Utc> = Utc.timestamp_opt(not_before, 0).unwrap();
 
         Ok(LoginResponse {
             token_type: r.token_type,
